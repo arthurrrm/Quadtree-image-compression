@@ -12,6 +12,6 @@ target_link_libraries(quadtree_compression PRIVATE ${OpenCV_LIBS})
 
 # Optional: Add tests
 enable_testing()
-add_executable(tests tests/test_main.cpp src/Quadtree.cpp src/Image.cpp)
+add_executable(tests tests/test_main.cpp src/Quadtree.cpp)
 target_link_libraries(tests PRIVATE ${OpenCV_LIBS})
 add_test(NAME QuadtreeTests COMMAND tests) 
