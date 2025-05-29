@@ -17,7 +17,8 @@ struct QuadtreeNode {
 // Function declarations
 QuadtreeNode* buildQuadtree(const cv::Mat&, int, int, int, int, int);
 void QuadtreeToImage(const QuadtreeNode*, cv::Mat&);
-void drawRectangle(const cv::Mat&, const QuadtreeNode* node);
 void colorizeNode(const QuadtreeNode*,const cv::Mat&);
-
+void drawRectangle(const cv::Mat&, const QuadtreeNode* node);
+void VisualizeQuadtree(const QuadtreeNode* node, cv::Mat& img);
+void CountLeaves(const QuadtreeNode* node, int& count);
 #endif

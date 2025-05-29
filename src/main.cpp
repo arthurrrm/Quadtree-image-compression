@@ -3,6 +3,8 @@
 #include <iostream>
 #include <cstdlib> // For std::atoi
 
+#define DEBUG 0
+
 int main(int argc, char* argv[]) {    
     if (argc < 2) {
         std::cerr << "Usage: " << argv[0] << " <image_path> [threshold]\n";
@@ -31,9 +33,16 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    int count = 0;
+    CountLeaves(root, count);
+    std::cout << "Number of rectangles: " << count << std::endl;
+
     // Draw the quadtree on the image
-    cv::Mat output = img.clone();
+    cv::Mat output = cv::Mat::zeros(img.size(), CV_8UC3);
     QuadtreeToImage(root, output);
+    if (DEBUG) { // Visualize the quadtree 
+        VisualizeQuadtree(root, output);
+    }
 
     cv::namedWindow("Image", cv::WINDOW_NORMAL); // Enable resizing
     cv::imshow("Image", output);
