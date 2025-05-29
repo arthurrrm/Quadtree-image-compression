@@ -1,2 +1,5 @@
 build
 .vscode
+tests/images/*.qtc
+tests/images/*_loaded.png
+tests/images/wec.png
